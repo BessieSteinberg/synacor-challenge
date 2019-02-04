@@ -60,7 +60,7 @@ class Memory(RandomAccessMemory):
 
         return super(Memory, self).read_from(address)
 
-    def load_program_into_memory(self, program):
+    def load_program(self, program):
         """ Loads program (iterable) into memory """
 
         memory_pointer = 0

@@ -102,7 +102,7 @@ class CentralProcessingUnit(object):
         """ runs the program which is models as an iterable of numbers """
 
         self.program_pointer = 0
-        self.memory.load_program_into_memory(program)
+        self.memory.load_program(program)
         self.current_program = self.get_current_program_value()
 
         while True:
