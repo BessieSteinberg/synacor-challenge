@@ -1,8 +1,5 @@
-from memory_storage import Memory
+from central_processing_unit import CentralProcessingUnit
 
-memory = Memory()
-
-bytes_generator = memory.get_bytes_from_file('challenge.bin')
-
-for b in bytes_generator:
-    print(b)
+import pudb; pudb.set_trace()
+cpu = CentralProcessingUnit()
+cpu.run_program('challenge.bin', from_file=True)

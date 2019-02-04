@@ -98,11 +98,11 @@ class CentralProcessingUnit(object):
             else:
                 break
 
-    def run_program(self, program):
+    def run_program(self, program, from_file=False):
         """ runs the program which is models as an iterable of numbers """
 
         self.program_pointer = 0
-        self.memory.load_program(program)
+        self.memory.load_program(program, from_file)
         self.current_program = self.get_current_program_value()
 
         while True:
