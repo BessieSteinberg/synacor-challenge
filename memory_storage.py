@@ -60,8 +60,23 @@ class Memory(RandomAccessMemory):
 
         return super(Memory, self).read_from(address)
 
-    def load_program(self, program):
-        """ Loads program (iterable) into memory """
+    def get_bytes_from_file(self, file_name):
+        """ generator that yields 16bits / 2bytes from file at a time """
+        with open(file_name, 'rb') as f:
+            while True:
+                b = f.read(2)
+                if b:
+                    yield b
+                else:
+                    break
+
+    def load_program(self, program, from_file=False):
+        """
+        Loads program (iterable) into memory
+        if 'from_file' is True program should be a file_name
+        """
+        if from_file:
+            program = self.get_bytes_from_file(program)
 
         memory_pointer = 0
         for value in program:
