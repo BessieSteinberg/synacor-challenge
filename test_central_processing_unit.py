@@ -57,7 +57,7 @@ def test_load_program_into_memory():
     """ Assert that program is loaded into memory properly """
     cpu = CentralProcessingUnit()
     program = [randint(0, 65535) in range(5)]
-    cpu.load_program_into_memory(program)
+    cpu.memory.load_program_into_memory(program)
 
     for memory_pointer in range(len(program)):
         assert program[memory_pointer] == cpu.memory.read_from(memory_pointer).value

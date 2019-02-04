@@ -34,6 +34,10 @@ class RandomAccessMemory(object):
 class Memory(RandomAccessMemory):
     """ A type of RAM with a 15-bit memory space """
 
+    def __init__(self):
+        super(Memory, self).__init__()
+        self.occupied_memory_addresses = 0
+
     def write_to(self, address, value):
         """ checks if address is in possible range and then tries to write 'value' to memory 'address'"""
         try:
@@ -55,6 +59,19 @@ class Memory(RandomAccessMemory):
             raise IndexError(f"Address [{address}] is out of range!")
 
         return super(Memory, self).read_from(address)
+
+    def load_program_into_memory(self, program):
+        """ Loads program (iterable) into memory """
+
+        memory_pointer = 0
+        for value in program:
+            self.write_to(memory_pointer, value)
+            memory_pointer += 1
+
+        self.occupied_memory_addresses = memory_pointer
+
+    def __str__(self):
+        return f"Memory: occupied addresses {self.occupied_memory_addresses}"
 
 
 class Registers(RandomAccessMemory):

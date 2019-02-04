@@ -88,14 +88,6 @@ class CentralProcessingUnit(object):
         except KeyError:
             raise NoCommandError(f"No command for opcode [{opcode}]")
 
-    def load_program_into_memory(self, program):
-        """ Loads program (iterable) into memory """
-
-        memory_pointer = 0
-        for value in program:
-            self.memory.write_to(memory_pointer, value)
-            memory_pointer += 1
-
     def get_current_program_value(self):
         """ Returns the value currently pointed to in the program then increases the pointer """
         while True:
@@ -110,7 +102,7 @@ class CentralProcessingUnit(object):
         """ runs the program which is models as an iterable of numbers """
 
         self.program_pointer = 0
-        self.load_program_into_memory(program)
+        self.memory.load_program_into_memory(program)
         self.current_program = self.get_current_program_value()
 
         while True:
