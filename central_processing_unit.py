@@ -32,7 +32,7 @@ class CentralProcessingUnit(object):
         """
         try:
             return self.registers.read_from(a).value
-        except AttributeError:
+        except (AttributeError, IndexError):
             return a
 
     def halt(self):

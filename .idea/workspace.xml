@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ea63049-2e94-4f62-a795-1ec79fb8f641" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/central_processing_unit.py" afterPath="$PROJECT_DIR$/central_processing_unit.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/memory_storage.py" afterPath="$PROJECT_DIR$/memory_storage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_central_processing_unit.py" afterPath="$PROJECT_DIR$/test_central_processing_unit.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,8 +41,8 @@
           <file leaf-file-name="central_processing_unit.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/central_processing_unit.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="328">
-                  <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+                <state relative-caret-position="396">
+                  <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
                   <folding />
                 </state>
               </provider>
@@ -90,8 +89,8 @@
           <file leaf-file-name="test_central_processing_unit.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test_central_processing_unit.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="59" column="15" lean-forward="false" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+                <state relative-caret-position="304">
+                  <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#92#0" expanded="true" />
                   </folding>
@@ -131,8 +130,8 @@
         <option value="$PROJECT_DIR$/bit_values.py" />
         <option value="$PROJECT_DIR$/test_memory_storage.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/central_processing_unit.py" />
         <option value="$PROJECT_DIR$/memory_storage.py" />
+        <option value="$PROJECT_DIR$/central_processing_unit.py" />
         <option value="$PROJECT_DIR$/test_central_processing_unit.py" />
       </list>
     </option>
@@ -377,16 +376,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/central_processing_unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+        <state relative-caret-position="396">
+          <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_central_processing_unit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="59" column="15" lean-forward="false" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+        <state relative-caret-position="304">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="e#0#92#0" expanded="true" />
           </folding>
