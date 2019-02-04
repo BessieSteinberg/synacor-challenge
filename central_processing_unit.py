@@ -80,10 +80,35 @@ class CentralProcessingUnit(object):
         a = self.get_value(next(self.current_program))
         self.program_pointer = a
 
+    def jt(self):
+        """
+        jt: 7 a b
+        if <a> is nonzero, jump to <b>
+        """
+        a = self.get_value(next(self.current_program))
+        b = self.get_value(next(self.current_program))
+
+        if not a == 0:
+            self.program_pointer = b
+
+    def jf(self):
+        """
+        jf: 8 a b
+        if <a> is zero, jump to <b>
+        """
+        a = self.get_value(next(self.current_program))
+        b = self.get_value(next(self.current_program))
+
+        if a == 0:
+            self.program_pointer = b
+
+
     # maps the opcode # to the associated function
     opcodes = {
         0: halt,
         6: jmp,
+        7: jt,
+        8: jf,
         9: add,
         19: out,
         21: noop,

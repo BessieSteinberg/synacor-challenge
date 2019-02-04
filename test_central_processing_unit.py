@@ -97,7 +97,64 @@ def test_jmp():
     program = [6, memory_address]
     cpu.run_program(program)
     assert chr(random_char) == cpu.terminal_log
-    
+
+
+def test_jt():
+    """ Test the jt operand """
+    # Initialize a program starting at 'memory_address' that prints a char
+    # Run program to jump to that mini program IF the arg to jt is nonzero,
+    # check that the char prints or doesn't as appropriate
+
+    # Does jump
+    cpu = CentralProcessingUnit(capture_terminal_log=True)
+    memory_address = get_random_memory_address(start_buffer=2, end_buffer=1)
+    random_char = get_random_char_ASCII_value()
+    cpu.memory.write_to(memory_address, 19)
+    cpu.memory.write_to(memory_address + 1, random_char)
+
+    program = [7, randint(1, 32767), memory_address]
+    cpu.run_program(program)
+    assert chr(random_char) == cpu.terminal_log
+
+    # Does not jump
+    cpu = CentralProcessingUnit(capture_terminal_log=True)
+    memory_address = get_random_memory_address(start_buffer=2, end_buffer=1)
+    random_char = get_random_char_ASCII_value()
+    cpu.memory.write_to(memory_address, 19)
+    cpu.memory.write_to(memory_address + 1, random_char)
+
+    program = [7, 0, memory_address]
+    cpu.run_program(program)
+    assert '' == cpu.terminal_log
+
+
+def test_jf():
+    """ Test the jf operand """
+    # Initialize a program starting at 'memory_address' that prints a char
+    # Run program to jump to that mini program IF the arg to jt is nonzero,
+    # check that the char prints or doesn't as appropriate
+
+    # Does jump
+    cpu = CentralProcessingUnit(capture_terminal_log=True)
+    memory_address = get_random_memory_address(start_buffer=2, end_buffer=1)
+    random_char = get_random_char_ASCII_value()
+    cpu.memory.write_to(memory_address, 19)
+    cpu.memory.write_to(memory_address + 1, random_char)
+
+    program = [8, 0, memory_address]
+    cpu.run_program(program)
+    assert chr(random_char) == cpu.terminal_log
+
+    # Does not jump
+    cpu = CentralProcessingUnit(capture_terminal_log=True)
+    memory_address = get_random_memory_address(start_buffer=2, end_buffer=1)
+    random_char = get_random_char_ASCII_value()
+    cpu.memory.write_to(memory_address, 19)
+    cpu.memory.write_to(memory_address + 1, random_char)
+
+    program = [8, randint(1, 32767), memory_address]
+    cpu.run_program(program)
+    assert '' == cpu.terminal_log
 
 
 
