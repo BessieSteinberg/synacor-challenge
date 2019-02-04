@@ -20,6 +20,8 @@ class CentralProcessingUnit(object):
         self.registers = Registers()
         self.stack = Stack()
 
+        self.program_pointer = 0
+
         # Just for debugging
         self.capture_terminal_log = capture_terminal_log
         self.terminal_log = ''
@@ -67,12 +69,21 @@ class CentralProcessingUnit(object):
         b = self.get_value(next(self.current_program))
         c = self.get_value(next(self.current_program))
 
-        sum = (b + c) % self.MAX_VALUE
-        self.registers.write_to(address_or_register=reg_a, value=sum)
+        result = (b + c) % self.MAX_VALUE
+        self.registers.write_to(address_or_register=reg_a, value=result)
+
+    def jmp(self):
+        """
+        jmp: 6 a
+        jump to <a>
+        """
+        a = self.get_value(next(self.current_program))
+        self.program_pointer = a
 
     # maps the opcode # to the associated function
     opcodes = {
         0: halt,
+        6: jmp,
         9: add,
         19: out,
         21: noop,
@@ -93,8 +104,8 @@ class CentralProcessingUnit(object):
         while True:
             value = self.memory.read_from(self.program_pointer)
             if value:
-                yield value.value
                 self.program_pointer += 1
+                yield value.value
             else:
                 break
 

@@ -1,5 +1,6 @@
 from central_processing_unit import CentralProcessingUnit, ProgramTerminated, NoCommandError
 import pytest
+from test_helpers import *
 from random import randint
 
 
@@ -64,7 +65,6 @@ def test_load_program_into_memory():
 
 
 # TODO: write better tests for add
-# TODO: get the tests to pass
 # TODO: i think registers should be holding 15 bit values - maybe worry abotu that when you get to bitwise operators
 
 def test_given_example():
@@ -82,3 +82,21 @@ def test_given_example():
 
     # Output to the terminal the character with the ascii code contained in register 0.
     assert 'E' == cpu.terminal_log
+
+
+def test_jmp():
+    """ Test the jmp operand """
+    # Initialize a program starting at 'memory_address' that prints a char
+    # Run program to jump to that mini program, check that the char prints
+g    cpu = CentralProcessingUnit(capture_terminal_log=True)
+    memory_address = get_random_memory_address(start_buffer=2, end_buffer=1)
+    random_char = get_random_char_ASCII_value()
+    cpu.memory.write_to(memory_address, 19)
+    cpu.memory.write_to(memory_address + 1, random_char)
+
+    program = [6, memory_address]
+    cpu.run_program(program)
+    assert chr(random_char) == cpu.terminal_log
+
+
+
